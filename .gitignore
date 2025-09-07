@@ -1,3 +1,22 @@
+# Ignore Maven build output
+target/
+
+# Ignore compiled files
+*.class
+
+# Ignore logs
+*.log
+
+# Ignore IDE settings (NetBeans, IntelliJ, Eclipse)
+.nb-configuration/
+.idea/
+*.iml
+.vscode/
+.settings/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
 # NetBeans build files
 /build/
 /dist/
