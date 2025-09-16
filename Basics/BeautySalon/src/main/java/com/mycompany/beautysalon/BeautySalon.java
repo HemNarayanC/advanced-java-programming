@@ -1,5 +1,5 @@
 package com.mycompany.beautysalon;
-
+import java.util.Scanner;
 class Customer{
     private String Name, memberType;
     private boolean isMember;
@@ -108,12 +108,31 @@ public class BeautySalon {
 
     public static void main(String[] args) {
 //        System.out.println("Hello World!");
-          Customer c1 = new Customer("Ransh");
-          c1.setMemberType("Gold");
+          Scanner sc = new Scanner(System.in);
+          System.out.println("Enter the name of the customer: ");
+          String name = sc.nextLine();
+          Customer c1 = new Customer(name);
+          
+          System.out.println("Is the customer a member?(yes/no)");
+          String isMemberInput = sc.nextLine().trim().toLowerCase();
+          boolean isMember = isMemberInput.equals("yes");
+          
+          if(isMember){
+              System.out.println("Enter the member type (Premium/Gold/Silver): ");
+              String memberType = sc.nextLine().trim();
+              c1.setMemberType(memberType);
+          }
           System.out.println(c1.getCustomerDetails());
           
           Visit v1 = new Visit(c1);
-          v1.setServiceExpenses(100);
+          
+          System.out.println("Enter the product expenses: ");
+          double productExpenses = sc.nextDouble();
+          v1.setProductExpenses(productExpenses);
+          
+          System.out.println("Enter the service expenses: ");
+          double serviceExpenses = sc.nextDouble();
+          v1.setServiceExpenses(serviceExpenses);
           System.out.println("Total Expenses: " + v1.getTotalBill());
     }
 }
